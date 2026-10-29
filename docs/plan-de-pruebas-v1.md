@@ -1,0 +1,1 @@
+El plan está preparado como una propuesta académica, no como evidencia de pruebas ya ejecutadas. Incluye criterios medibles, tres riesgos con mitigación y la estrategia manual y automatizada que necesitamos documentar.
