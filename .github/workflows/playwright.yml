@@ -29,6 +29,7 @@ jobs:
 
       - name: Diagnosticar acceso HTTP
         shell: cmd
+        continue-on-error: true
         run: |
           curl.exe -sS -L -o NUL -w "HTTP %%{http_code}\n" --max-time 20 https://practicesoftwaretesting.com/
 
@@ -48,4 +49,3 @@ jobs:
             playwright-report/
           if-no-files-found: ignore
           retention-days: 7
-
