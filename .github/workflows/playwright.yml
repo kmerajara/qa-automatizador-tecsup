@@ -1,4 +1,4 @@
-name: npx playwright test tests/catalogo.spec.js --browser=chromium
+name: npx playwright test tests/toolshop.spec.js --browser=chromium --workers=1
 
 on:
   workflow_dispatch:
