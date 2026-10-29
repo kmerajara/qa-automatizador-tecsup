@@ -94,22 +94,39 @@ Diseñar ocho casos de prueba manuales para verificar funcionalidades principale
 - **Resultado esperado:** Se impide el envío y se informa qué campos son obligatorios.
 - **Estado:** No ejecutado.
 
-## 3. Resumen de ejecución
 
-| Caso | Fecha de elaboración | Estado |
-|---|---|---|
-| CP-001 | 20/10/2026 | No ejecutado |
-| CP-002 | 20/10/2026 | No ejecutado |
-| CP-003 | 20/10/2026 | No ejecutado |
-| CP-004 | 20/10/2026 | No ejecutado |
-| CP-005 | 20/10/2026 | No ejecutado |
-| CP-006 | 20/10/2026 | No ejecutado |
-| CP-007 | 20/10/2026 | No ejecutado |
-| CP-008 | 20/10/2026 | No ejecutado |
+## 3. Matriz de seguimiento de casos de prueba
+
+**Fecha de elaboración:** 20/10/2026
+**Fecha de ejecución:** Pendiente de confirmar
+**Aplicación bajo prueba:** Practice Software Testing (Toolshop)
+**Versión:** 1.0
+
+| ID | Caso de prueba | Fecha de diseño | Estado | Resultado | Evidencia |
+|---|---|---|---|---|---|
+| CP-001 | Visualización del catálogo | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-002 | Búsqueda de producto existente | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-003 | Búsqueda sin coincidencias | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-004 | Visualización del detalle | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-005 | Filtro de productos | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-006 | Ordenamiento por precio | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-007 | Inicio de sesión con datos inválidos | 20/10/2026 | Diseñado | No evaluado | Pendiente |
+| CP-008 | Validación de campos obligatorios | 20/10/2026 | Diseñado | No evaluado | Pendiente |
 
 ## 4. Observaciones
 
-Los casos corresponden a una propuesta académica de diseño de pruebas. Los resultados reales, evidencias y defectos se incorporarán después de su ejecución.
+Los ocho casos de prueba fueron documentados con fecha
+20/10/2026 como parte de la planificación de calidad.
+
+Los resultados de ejecución serán incorporados después
+de verificar cada escenario en Toolshop.
+
+Cada ejecución incluirá su fecha real, resultado obtenido
+y evidencia correspondiente.
+
+Este documento distingue el diseño de las pruebas
+de su ejecución efectiva.
+
 
 **Fecha de elaboración:** 20/10/2026.
 
