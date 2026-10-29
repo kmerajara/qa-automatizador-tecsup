@@ -28,10 +28,15 @@ jobs:
       - name: Ejecutar pruebas QA
         run: npx playwright test tests/catalogo.spec.js --browser=chromium
 
+
       - name: Guardar resultados
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: reporte-playwright
-          path: playwright-report/
-          if-no-files-found: ignore
+          name: diagnostico-playwright
+          path: |
+            diagnostico-catalogo.png
+            test-results/
+            playwright-report/
+          if-no-files-found: warn
+
