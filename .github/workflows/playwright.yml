@@ -1,5 +1,4 @@
-
-name: QA Automatizado - Playwright
+name: npx playwright test tests/catalogo.spec.js --browser=chromium
 
 on:
   workflow_dispatch:
