@@ -1,14 +1,13 @@
+
 name: Pruebas QA - Playwright
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
 
 jobs:
   pruebas-qa:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    runs-on: [self-hosted, Windows, X64]
+    timeout-minutes: 20
 
     steps:
       - name: Descargar repositorio
@@ -19,17 +18,22 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Instalar Playwright
-        run: |
-          npm ci
-          npx playwright install --with-deps chromium
+      - name: Instalar dependencias
+        shell: cmd
+        run: npm.cmd ci
+
+      - name: Instalar Chromium
+        shell: cmd
+        run: npx.cmd playwright install chromium
 
       - name: Diagnosticar acceso HTTP
+        shell: pwsh
         run: |
-          curl -sS -L -o /dev/null -w "HTTP %{http_code}\n" --max-time 20 https://practicesoftwaretesting.com/
+          curl.exe -sS -L -o NUL -w "HTTP %{http_code}`n" --max-time 20 https://practicesoftwaretesting.com/
 
-      - name: Ejecutar pruebas QA
-        run: npx playwright test tests/toolshop.spec.js --browser=chromium --workers=1
+      - name: Ejecutar 8 pruebas QA
+        shell: cmd
+        run: npx.cmd playwright test tests/toolshop.spec.js --browser=chromium --workers=1
 
       - name: Guardar resultados
         if: always()
@@ -40,4 +44,5 @@ jobs:
             diagnostico-catalogo.png
             test-results/
             playwright-report/
-          if-no-files-found: warn
+          if-no-files-found: ignore
+
