@@ -1,4 +1,4 @@
-name: npx playwright test tests/toolshop.spec.js --browser=chromium --workers=1
+name: Pruebas QA - Playwright
 
 on:
   workflow_dispatch:
@@ -21,12 +21,15 @@ jobs:
 
       - name: Instalar Playwright
         run: |
-          npm install --no-save @playwright/test
+          npm ci
           npx playwright install --with-deps chromium
+
+      - name: Diagnosticar acceso HTTP
+        run: |
+          curl -sS -L -o /dev/null -w "HTTP %{http_code}\n" --max-time 20 https://practicesoftwaretesting.com/
 
       - name: Ejecutar pruebas QA
         run: npx playwright test tests/toolshop.spec.js --browser=chromium --workers=1
-
 
       - name: Guardar resultados
         if: always()
@@ -38,4 +41,3 @@ jobs:
             test-results/
             playwright-report/
           if-no-files-found: warn
-
