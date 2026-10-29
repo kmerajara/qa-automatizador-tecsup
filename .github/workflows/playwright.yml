@@ -1,0 +1,37 @@
+
+name: QA Automatizado - Playwright
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  pruebas-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar Playwright
+        run: |
+          npm install --no-save @playwright/test
+          npx playwright install --with-deps chromium
+
+      - name: Ejecutar pruebas QA
+        run: npx playwright test tests/catalogo.spec.js --browser=chromium
+
+      - name: Guardar resultados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-playwright
+          path: playwright-report/
+          if-no-files-found: ignore
