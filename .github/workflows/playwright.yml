@@ -6,6 +6,7 @@ on:
 
 jobs:
   pruebas-qa:
+    name: Ejecutar 8 pruebas QA
     runs-on: [self-hosted, Windows, X64]
     timeout-minutes: 20
 
@@ -27,22 +28,24 @@ jobs:
         run: npx.cmd playwright install chromium
 
       - name: Diagnosticar acceso HTTP
-        shell: pwsh
+        shell: cmd
         run: |
-          curl.exe -sS -L -o NUL -w "HTTP %{http_code}`n" --max-time 20 https://practicesoftwaretesting.com/
+          curl.exe -sS -L -o NUL -w "HTTP %%{http_code}\n" --max-time 20 https://practicesoftwaretesting.com/
 
       - name: Ejecutar 8 pruebas QA
         shell: cmd
-        run: npx.cmd playwright test tests/toolshop.spec.js --browser=chromium --workers=1
+        run: |
+          npx.cmd playwright test tests/toolshop.spec.js --browser=chromium --workers=1
 
       - name: Guardar resultados
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: diagnostico-playwright
+          name: resultados-playwright-windows
           path: |
             diagnostico-catalogo.png
             test-results/
             playwright-report/
           if-no-files-found: ignore
+          retention-days: 7
 
