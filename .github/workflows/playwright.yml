@@ -25,7 +25,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Ejecutar pruebas QA
-        run: npx playwright test tests/catalogo.spec.js --browser=chromium
+        run: npx playwright test tests/toolshop.spec.js --browser=chromium --workers=1
 
 
       - name: Guardar resultados
